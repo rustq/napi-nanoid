@@ -1,21 +1,18 @@
 import b from 'benny'
+import { nanoid as nanoidJs } from 'nanoid'
 
-import { plus100 } from '../index'
-
-function add(a: number) {
-  return a + 100
-}
+import * as NapiNanoID from '../index'
 
 async function run() {
   await b.suite(
-    'Add 100',
+    'nanoid',
 
-    b.add('Native a + 100', () => {
-      plus100(10)
+    b.add('nanoidJs', () => {
+      nanoidJs()
     }),
 
-    b.add('JavaScript a + 100', () => {
-      add(10)
+    b.add('NapiNanoID', () => {
+      NapiNanoID.nanoid()
     }),
 
     b.cycle(),
