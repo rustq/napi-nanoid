@@ -1,5 +1,5 @@
 {
-  "name": "@dev-napi-package/nanoid-dev",
+  "name": "@dev-rustq/napi-nanoid",
   "version": "0.0.1",
   "description": "Template project for writing node package with napi-rs",
   "main": "index.js",
