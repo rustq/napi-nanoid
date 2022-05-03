@@ -1,5 +1,5 @@
 {
-  "name": "@napi-rs/package-template-linux-x64-gnu",
+  "name": "@dev-rustq/napi-nanoid-linux-x64-gnu",
   "version": "0.0.1-beta",
   "os": [
     "linux"

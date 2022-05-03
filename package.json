@@ -111,5 +111,20 @@
     "trailingComma": "all",
     "singleQuote": true,
     "arrowParens": "always"
+  },
+  "optionalDependencies": {
+    "@dev-rustq/napi-nanoid-win32-x64-msvc": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-darwin-x64": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-linux-x64-gnu": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-linux-x64-musl": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-linux-arm64-gnu": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-win32-ia32-msvc": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-linux-arm-gnueabihf": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-darwin-arm64": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-android-arm64": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-freebsd-x64": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-linux-arm64-musl": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-win32-arm64-msvc": "0.0.1-beta",
+    "@dev-rustq/napi-nanoid-android-arm-eabi": "0.0.1-beta"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@napi-rs/package-template-android-arm-eabi",
+  "name": "@dev-rustq/napi-nanoid-android-arm-eabi",
   "version": "0.0.1-beta",
   "os": [
     "android"

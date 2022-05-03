@@ -1,5 +1,5 @@
 {
-  "name": "@napi-rs/package-template-freebsd-x64",
+  "name": "@dev-rustq/napi-nanoid-freebsd-x64",
   "version": "0.0.1-beta",
   "os": [
     "freebsd"

@@ -1,5 +1,5 @@
 {
-  "name": "@napi-rs/package-template-linux-arm64-musl",
+  "name": "@dev-rustq/napi-nanoid-linux-arm64-musl",
   "version": "0.0.1-beta",
   "os": [
     "linux"
