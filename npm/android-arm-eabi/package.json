@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/package-template-android-arm-eabi",
-  "version": "0.0.1-dev.6",
+  "version": "0.0.1-dev.7",
   "os": [
     "android"
   ],
