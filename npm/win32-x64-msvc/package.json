@@ -7,9 +7,9 @@
   "cpu": [
     "x64"
   ],
-  "main": "package-template.win32-x64-msvc.node",
+  "main": "napi-nanoid.win32-x64-msvc.node",
   "files": [
-    "package-template.win32-x64-msvc.node"
+    "napi-nanoid.win32-x64-msvc.node"
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [
