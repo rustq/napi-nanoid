@@ -1,3 +1,3 @@
-# `@dev-rustq/napi-nanoid-linux-arm-gnueabihf`
+# `@napi-rs/package-template-linux-arm-gnueabihf`
 
-This is the **armv7-unknown-linux-gnueabihf** binary for `@dev-rustq/napi-nanoid`
+This is the **armv7-unknown-linux-gnueabihf** binary for `@napi-rs/package-template`

@@ -1,3 +1,3 @@
-# `@dev-rustq/napi-nanoid-android-arm-eabi`
+# `@napi-rs/package-template-android-arm-eabi`
 
-This is the **armv7-linux-androideabi** binary for `@dev-rustq/napi-nanoid`
+This is the **armv7-linux-androideabi** binary for `@napi-rs/package-template`

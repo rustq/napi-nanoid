@@ -1,3 +1,3 @@
-# `@dev-rustq/napi-nanoid-win32-x64-msvc`
+# `@napi-rs/package-template-win32-x64-msvc`
 
-This is the **x86_64-pc-windows-msvc** binary for `@dev-rustq/napi-nanoid`
+This is the **x86_64-pc-windows-msvc** binary for `@napi-rs/package-template`

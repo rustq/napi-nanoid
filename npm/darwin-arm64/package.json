@@ -1,5 +1,5 @@
 {
-  "name": "@dev-rustq/napi-nanoid-darwin-arm64",
+  "name": "@napi-rs/package-template-darwin-arm64",
   "version": "0.0.1-beta",
   "os": [
     "darwin"

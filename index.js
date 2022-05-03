@@ -18,7 +18,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./package-template.android-arm64.node')
       } else {
-        nativeBinding = require('@dev-rustq/napi-nanoid-android-arm64')
+        nativeBinding = require('@napi-rs/package-template-android-arm64')
       }
     } catch (e) {
       loadError = e
@@ -32,7 +32,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-x64-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-x64-msvc')
+            nativeBinding = require('@napi-rs/package-template-win32-x64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -44,7 +44,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-ia32-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-ia32-msvc')
+            nativeBinding = require('@napi-rs/package-template-win32-ia32-msvc')
           }
         } catch (e) {
           loadError = e
@@ -56,7 +56,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-arm64-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-arm64-msvc')
+            nativeBinding = require('@napi-rs/package-template-win32-arm64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -74,7 +74,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.darwin-x64.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-darwin-x64')
+            nativeBinding = require('@napi-rs/package-template-darwin-x64')
           }
         } catch (e) {
           loadError = e
@@ -86,7 +86,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.darwin-arm64.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-darwin-arm64')
+            nativeBinding = require('@napi-rs/package-template-darwin-arm64')
           }
         } catch (e) {
           loadError = e
@@ -105,7 +105,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./package-template.freebsd-x64.node')
       } else {
-        nativeBinding = require('@dev-rustq/napi-nanoid-freebsd-x64')
+        nativeBinding = require('@napi-rs/package-template-freebsd-x64')
       }
     } catch (e) {
       loadError = e
@@ -121,7 +121,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-x64-musl.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-x64-musl')
+              nativeBinding = require('@napi-rs/package-template-linux-x64-musl')
             }
           } catch (e) {
             loadError = e
@@ -132,7 +132,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-x64-gnu.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-x64-gnu')
+              nativeBinding = require('@napi-rs/package-template-linux-x64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -147,7 +147,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-arm64-musl.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm64-musl')
+              nativeBinding = require('@napi-rs/package-template-linux-arm64-musl')
             }
           } catch (e) {
             loadError = e
@@ -158,7 +158,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-arm64-gnu.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm64-gnu')
+              nativeBinding = require('@napi-rs/package-template-linux-arm64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -171,7 +171,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./package-template.linux-arm-gnueabihf.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm-gnueabihf')
+            nativeBinding = require('@napi-rs/package-template-linux-arm-gnueabihf')
           }
         } catch (e) {
           loadError = e

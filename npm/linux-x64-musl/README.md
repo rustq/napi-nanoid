@@ -1,3 +1,3 @@
-# `@dev-rustq/napi-nanoid-linux-x64-musl`
+# `@napi-rs/package-template-linux-x64-musl`
 
-This is the **x86_64-unknown-linux-musl** binary for `@dev-rustq/napi-nanoid`
+This is the **x86_64-unknown-linux-musl** binary for `@napi-rs/package-template`

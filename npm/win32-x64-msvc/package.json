@@ -1,5 +1,5 @@
 {
-  "name": "@dev-rustq/napi-nanoid-win32-x64-msvc",
+  "name": "@napi-rs/package-template-win32-x64-msvc",
   "version": "0.0.1-beta",
   "os": [
     "win32"
