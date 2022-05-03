@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/package-template-darwin-arm64",
-  "version": "0.0.1-dev.3",
+  "version": "0.0.1-dev.4",
   "os": [
     "darwin"
   ],
