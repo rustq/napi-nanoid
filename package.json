@@ -18,7 +18,7 @@
     "index.js"
   ],
   "napi": {
-    "name": "napi-nanoid",
+    "name": "package-template",
     "triples": {
       "defaults": true,
       "additional": [

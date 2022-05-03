@@ -13,7 +13,7 @@ switch (platform) {
     if (arch !== 'arm64') {
       throw new Error(`Unsupported architecture on Android ${arch}`)
     }
-    localFileExisted = existsSync(join(__dirname, 'napi-nanoid.android-arm64.node'))
+    localFileExisted = existsSync(join(__dirname, 'package-template.android-arm64.node'))
     try {
       if (localFileExisted) {
         nativeBinding = require('./package-template.android-arm64.node')
@@ -27,7 +27,7 @@ switch (platform) {
   case 'win32':
     switch (arch) {
       case 'x64':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-x64-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.win32-x64-msvc.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-x64-msvc.node')
@@ -39,7 +39,7 @@ switch (platform) {
         }
         break
       case 'ia32':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-ia32-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.win32-ia32-msvc.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-ia32-msvc.node')
@@ -51,7 +51,7 @@ switch (platform) {
         }
         break
       case 'arm64':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-arm64-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.win32-arm64-msvc.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.win32-arm64-msvc.node')
@@ -69,7 +69,7 @@ switch (platform) {
   case 'darwin':
     switch (arch) {
       case 'x64':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.darwin-x64.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.darwin-x64.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.darwin-x64.node')
@@ -81,7 +81,7 @@ switch (platform) {
         }
         break
       case 'arm64':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.darwin-arm64.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.darwin-arm64.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.darwin-arm64.node')
@@ -100,7 +100,7 @@ switch (platform) {
     if (arch !== 'x64') {
       throw new Error(`Unsupported architecture on FreeBSD: ${arch}`)
     }
-    localFileExisted = existsSync(join(__dirname, 'napi-nanoid.freebsd-x64.node'))
+    localFileExisted = existsSync(join(__dirname, 'package-template.freebsd-x64.node'))
     try {
       if (localFileExisted) {
         nativeBinding = require('./package-template.freebsd-x64.node')
@@ -116,7 +116,7 @@ switch (platform) {
       case 'x64':
         isMusl = readFileSync('/usr/bin/ldd', 'utf8').includes('musl')
         if (isMusl) {
-          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-x64-musl.node'))
+          localFileExisted = existsSync(join(__dirname, 'package-template.linux-x64-musl.node'))
           try {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-x64-musl.node')
@@ -127,7 +127,7 @@ switch (platform) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-x64-gnu.node'))
+          localFileExisted = existsSync(join(__dirname, 'package-template.linux-x64-gnu.node'))
           try {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-x64-gnu.node')
@@ -142,7 +142,7 @@ switch (platform) {
       case 'arm64':
         isMusl = readFileSync('/usr/bin/ldd', 'utf8').includes('musl')
         if (isMusl) {
-          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm64-musl.node'))
+          localFileExisted = existsSync(join(__dirname, 'package-template.linux-arm64-musl.node'))
           try {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-arm64-musl.node')
@@ -153,7 +153,7 @@ switch (platform) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm64-gnu.node'))
+          localFileExisted = existsSync(join(__dirname, 'package-template.linux-arm64-gnu.node'))
           try {
             if (localFileExisted) {
               nativeBinding = require('./package-template.linux-arm64-gnu.node')
@@ -166,7 +166,7 @@ switch (platform) {
         }
         break
       case 'arm':
-        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm-gnueabihf.node'))
+        localFileExisted = existsSync(join(__dirname, 'package-template.linux-arm-gnueabihf.node'))
         try {
           if (localFileExisted) {
             nativeBinding = require('./package-template.linux-arm-gnueabihf.node')
