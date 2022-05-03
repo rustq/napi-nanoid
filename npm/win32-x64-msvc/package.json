@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/package-template-win32-x64-msvc",
-  "version": "1.0.0",
+  "version": "0.0.1-beta",
   "os": [
     "win32"
   ],
