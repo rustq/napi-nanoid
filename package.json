@@ -1,6 +1,6 @@
 {
   "name": "@dev-rustq/napi-nanoid",
-  "version": "0.0.1-dev.5",
+  "version": "0.0.1-dev.6",
   "description": "Template project for writing node package with napi-rs",
   "main": "index.js",
   "repository": "git@github.com:napi-rs/package-template.git",
