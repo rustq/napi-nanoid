@@ -1,6 +1,7 @@
 #![deny(clippy::all)]
 
 use napi_derive::napi;
+use random_fast_rng::{FastRng, Random};
 
 #[cfg(all(
   any(windows, unix),
@@ -11,7 +12,15 @@ use napi_derive::napi;
 #[global_allocator]
 static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-#[napi]
+fn random(size: usize) -> Vec<u8> {
+  let mut fast_rng = FastRng::new();
+  let mut result: Vec<u8> = vec![0; size];
+
+  fast_rng.fill_bytes(&mut result[..]);
+  result
+}
+
+#[napi_derive::napi]
 pub fn nanoid() -> String {
-  "hello".to_string()
+  nanoid::format(random, &nanoid::alphabet::SAFE, 21)
 }
