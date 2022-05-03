@@ -1,11 +1,13 @@
 {
-  "name": "@dev-rustq/napi-nanoid",
+  "name": "napi-nanoid",
   "version": "0.0.1-dev.6",
   "description": "Template project for writing node package with napi-rs",
   "main": "index.js",
-  "repository": "git@github.com:napi-rs/package-template.git",
+  "repository": "git@github.com:rustq/napi-nanoid.git",
   "license": "MIT",
   "keywords": [
+    "napi-nanoid",
+    "nanoid",
     "napi-rs",
     "NAPI",
     "N-API",

@@ -13,12 +13,12 @@ switch (platform) {
     if (arch !== 'arm64') {
       throw new Error(`Unsupported architecture on Android ${arch}`)
     }
-    localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.android-arm64.node'))
+    localFileExisted = existsSync(join(__dirname, 'napi-nanoid.android-arm64.node'))
     try {
       if (localFileExisted) {
-        nativeBinding = require('./@dev-rustq/napi-nanoid.android-arm64.node')
+        nativeBinding = require('./napi-nanoid.android-arm64.node')
       } else {
-        nativeBinding = require('@dev-rustq/napi-nanoid-android-arm64')
+        nativeBinding = require('napi-nanoid-android-arm64')
       }
     } catch (e) {
       loadError = e
@@ -27,36 +27,36 @@ switch (platform) {
   case 'win32':
     switch (arch) {
       case 'x64':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.win32-x64-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-x64-msvc.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.win32-x64-msvc.node')
+            nativeBinding = require('./napi-nanoid.win32-x64-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-x64-msvc')
+            nativeBinding = require('napi-nanoid-win32-x64-msvc')
           }
         } catch (e) {
           loadError = e
         }
         break
       case 'ia32':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.win32-ia32-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-ia32-msvc.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.win32-ia32-msvc.node')
+            nativeBinding = require('./napi-nanoid.win32-ia32-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-ia32-msvc')
+            nativeBinding = require('napi-nanoid-win32-ia32-msvc')
           }
         } catch (e) {
           loadError = e
         }
         break
       case 'arm64':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.win32-arm64-msvc.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.win32-arm64-msvc.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.win32-arm64-msvc.node')
+            nativeBinding = require('./napi-nanoid.win32-arm64-msvc.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-win32-arm64-msvc')
+            nativeBinding = require('napi-nanoid-win32-arm64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -69,24 +69,24 @@ switch (platform) {
   case 'darwin':
     switch (arch) {
       case 'x64':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.darwin-x64.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.darwin-x64.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.darwin-x64.node')
+            nativeBinding = require('./napi-nanoid.darwin-x64.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-darwin-x64')
+            nativeBinding = require('napi-nanoid-darwin-x64')
           }
         } catch (e) {
           loadError = e
         }
         break
       case 'arm64':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.darwin-arm64.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.darwin-arm64.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.darwin-arm64.node')
+            nativeBinding = require('./napi-nanoid.darwin-arm64.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-darwin-arm64')
+            nativeBinding = require('napi-nanoid-darwin-arm64')
           }
         } catch (e) {
           loadError = e
@@ -100,12 +100,12 @@ switch (platform) {
     if (arch !== 'x64') {
       throw new Error(`Unsupported architecture on FreeBSD: ${arch}`)
     }
-    localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.freebsd-x64.node'))
+    localFileExisted = existsSync(join(__dirname, 'napi-nanoid.freebsd-x64.node'))
     try {
       if (localFileExisted) {
-        nativeBinding = require('./@dev-rustq/napi-nanoid.freebsd-x64.node')
+        nativeBinding = require('./napi-nanoid.freebsd-x64.node')
       } else {
-        nativeBinding = require('@dev-rustq/napi-nanoid-freebsd-x64')
+        nativeBinding = require('napi-nanoid-freebsd-x64')
       }
     } catch (e) {
       loadError = e
@@ -116,23 +116,23 @@ switch (platform) {
       case 'x64':
         isMusl = readFileSync('/usr/bin/ldd', 'utf8').includes('musl')
         if (isMusl) {
-          localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.linux-x64-musl.node'))
+          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-x64-musl.node'))
           try {
             if (localFileExisted) {
-              nativeBinding = require('./@dev-rustq/napi-nanoid.linux-x64-musl.node')
+              nativeBinding = require('./napi-nanoid.linux-x64-musl.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-x64-musl')
+              nativeBinding = require('napi-nanoid-linux-x64-musl')
             }
           } catch (e) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.linux-x64-gnu.node'))
+          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-x64-gnu.node'))
           try {
             if (localFileExisted) {
-              nativeBinding = require('./@dev-rustq/napi-nanoid.linux-x64-gnu.node')
+              nativeBinding = require('./napi-nanoid.linux-x64-gnu.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-x64-gnu')
+              nativeBinding = require('napi-nanoid-linux-x64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -142,23 +142,23 @@ switch (platform) {
       case 'arm64':
         isMusl = readFileSync('/usr/bin/ldd', 'utf8').includes('musl')
         if (isMusl) {
-          localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.linux-arm64-musl.node'))
+          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm64-musl.node'))
           try {
             if (localFileExisted) {
-              nativeBinding = require('./@dev-rustq/napi-nanoid.linux-arm64-musl.node')
+              nativeBinding = require('./napi-nanoid.linux-arm64-musl.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm64-musl')
+              nativeBinding = require('napi-nanoid-linux-arm64-musl')
             }
           } catch (e) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.linux-arm64-gnu.node'))
+          localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm64-gnu.node'))
           try {
             if (localFileExisted) {
-              nativeBinding = require('./@dev-rustq/napi-nanoid.linux-arm64-gnu.node')
+              nativeBinding = require('./napi-nanoid.linux-arm64-gnu.node')
             } else {
-              nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm64-gnu')
+              nativeBinding = require('napi-nanoid-linux-arm64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -166,12 +166,12 @@ switch (platform) {
         }
         break
       case 'arm':
-        localFileExisted = existsSync(join(__dirname, '@dev-rustq/napi-nanoid.linux-arm-gnueabihf.node'))
+        localFileExisted = existsSync(join(__dirname, 'napi-nanoid.linux-arm-gnueabihf.node'))
         try {
           if (localFileExisted) {
-            nativeBinding = require('./@dev-rustq/napi-nanoid.linux-arm-gnueabihf.node')
+            nativeBinding = require('./napi-nanoid.linux-arm-gnueabihf.node')
           } else {
-            nativeBinding = require('@dev-rustq/napi-nanoid-linux-arm-gnueabihf')
+            nativeBinding = require('napi-nanoid-linux-arm-gnueabihf')
           }
         } catch (e) {
           loadError = e
@@ -192,4 +192,6 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const {} = nativeBinding
+const { nanoid } = nativeBinding
+
+module.exports.nanoid = nanoid
