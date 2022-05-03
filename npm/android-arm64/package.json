@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-android-arm64",
-  "version": "0.0.1-dev.7",
+  "version": "0.0.1-dev.8",
   "os": [
     "android"
   ],
