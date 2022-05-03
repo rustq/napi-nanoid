@@ -7,7 +7,6 @@ env:
   push:
     branches:
       - main
-      - npm_ci
     tags-ignore:
       - '**'
     paths-ignore:
