@@ -1,7 +1,7 @@
 # napi-nanoid
 
 
-[![license](https://img.shields.io/npm/l/napi-nanoid?color=cyan)](https://revolunet.mit-license.org/) [![npm](https://img.shields.io/npm/v/napi-nanoid?color=orange)](https://www.npmjs.com/package/napi-nanoid) [![downloads](https://img.shields.io/npm/dm/napi-nanoid?color=violet)](https://www.npmjs.com/package/napi-nanoid)
+[![license](https://img.shields.io/npm/l/napi-nanoid?color=cyan)](https://revolunet.mit-license.org/) [![npm](https://img.shields.io/npm/v/napi-nanoid?color=orange)](https://www.npmjs.com/package/napi-nanoid)
 
 `The NAPI nanoid written in Rust`
 
@@ -27,22 +27,24 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 ## Performance
 
+`Benchmark: Linux-x64-gnu | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 Cores | 1 G | node 16`
+
 ```shell
-Test bindings on Linux-x64-gnu - node@16
+Running "nanoid" suite...
 
   uuid:
-    894 223 ops/s, ±0.16%     | slowest, 81.08% slower
+    666 715 ops/s, ±7.58%     | slowest, 83.42% slower
 
   nanoid-js:
-    2 666 811 ops/s, ±0.43%   | 43.57% slower
+    2 289 818 ops/s, ±0.83%   | 43.06% slower
 
   napi-nanoid:
-    4 725 662 ops/s, ±0.13%   | fastest
+    4 021 677 ops/s, ±0.67%   | fastest
 
 Finished 3 cases!
   Fastest: napi-nanoid
   Slowest: uuid
-Done in 17.04s.
+Done in 17.14s.
 ```
 
 ## Support matrix
