@@ -27,8 +27,6 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 ## Performance
 
-`Benchmark: Linux-x64-gnu | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 Cores | 1 G | node 16`
-
 ```rust
 Running "napi-nanoid" suite...
 
@@ -46,6 +44,8 @@ Finished 3 cases!
   Slowest: uuid
 Done in 17.41s.
 ```
+
+Benchmark configuration: Linux x64 gnu, Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz, Node.js 16.15.0
 
 [(runs: 6287759337)](https://github.com/rustq/napi-nanoid/runs/6287759337)
 
