@@ -117,5 +117,9 @@ jobs:
         shell: bash
       - name: Test bindings
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn test
+      - name: Check CPU and Memory
+        run: |
+          cat /proc/cpuinfo
+          cat /proc/meminfo
       - name: Run benchmark
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn bench
