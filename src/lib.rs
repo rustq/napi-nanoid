@@ -1,8 +1,6 @@
 #![deny(clippy::all)]
 
-#[warn(unused_imports)]
-use napi_derive::napi;
-
+use napi_derive::*;
 use random_fast_rng::{FastRng, Random};
 
 #[cfg(all(
@@ -22,7 +20,7 @@ fn random(size: usize) -> Vec<u8> {
   result
 }
 
-#[napi_derive::napi]
+#[napi]
 pub fn nanoid() -> String {
   nanoid::format(random, &nanoid::alphabet::SAFE, 21)
 }

@@ -2,22 +2,22 @@ import b from 'benny'
 import { nanoid as nanoidJs } from 'nanoid'
 import * as uuid from 'uuid'
 
-import { nanoid } from '../index'
+import { nanoid as nanoidNapi } from '../index'
 
 async function run() {
   await b.suite(
-    'nanoid',
+    'napi-nanoid',
 
-    b.add('uuid', () => {
-      uuid.v4()
+    b.add('napi-nanoid', () => {
+      nanoidNapi()
     }),
 
-    b.add('nanoid-js', () => {
+    b.add('js-nanoid', () => {
       nanoidJs()
     }),
 
-    b.add('napi-nanoid', () => {
-      nanoid()
+    b.add('uuid', () => {
+      uuid.v4()
     }),
 
     b.cycle(),
