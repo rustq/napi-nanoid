@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-android-arm-eabi",
-  "version": "0.0.1-dev.12",
+  "version": "0.0.1-dev.13",
   "os": [
     "android"
   ],
