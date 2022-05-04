@@ -6,7 +6,6 @@ env:
   push:
     branches:
       - main
-      - doc
     tags-ignore:
       - '**'
   pull_request:

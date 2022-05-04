@@ -7,7 +7,6 @@ env:
   push:
     branches:
       - main
-      - doc
     tags-ignore:
       - '**'
     paths-ignore:
