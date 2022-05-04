@@ -1,0 +1,53 @@
+name: Benchmark
+env:
+  DEBUG: napi:*
+  APP_NAME: napi-nanoid
+'on':
+  push:
+    branches:
+      - main
+      - doc
+    tags-ignore:
+      - '**'
+  pull_request:
+
+jobs:
+  Benchmark:
+    name: Test bindings on Linux-x64-gnu - node@${{ matrix.node }}
+    needs:
+      - build
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - '12'
+          - '14'
+          - '16'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+          cache: yarn
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: npm-cache-test-linux-x64-gnu-${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --ignore-scripts --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: bindings-x86_64-unknown-linux-gnu
+          path: .
+      - name: List packages
+        run: ls -R .
+        shell: bash
+      - name: Test bindings
+        run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn test
+      - name: Run benchmark
+        run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn bench

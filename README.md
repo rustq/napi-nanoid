@@ -28,7 +28,21 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 ## Performance
 
 ```shell
-# TODO
+Test bindings on Linux-x64-gnu - node@16
+
+  uuid:
+    894 223 ops/s, ±0.16%     | slowest, 81.08% slower
+
+  nanoid-js:
+    2 666 811 ops/s, ±0.43%   | 43.57% slower
+
+  napi-nanoid:
+    4 725 662 ops/s, ±0.13%   | fastest
+
+Finished 3 cases!
+  Fastest: napi-nanoid
+  Slowest: uuid
+Done in 17.04s.
 ```
 
 ## Support matrix
