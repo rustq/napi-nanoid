@@ -29,7 +29,7 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 `Benchmark: Linux-x64-gnu | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 Cores | 1 G | node 16`
 
-```shell
+```rust
 Running "nanoid" suite...
 
   uuid:
