@@ -38,7 +38,6 @@ jobs:
             build: |
               yarn build --target i686-pc-windows-msvc
               yarn test
-              yarn bench
             target: i686-pc-windows-msvc
             architecture: x86
           - host: ubuntu-latest
@@ -210,7 +209,6 @@ jobs:
             yarn build
             strip -x *.node
             yarn test
-            yarn bench
             rm -rf node_modules
             rm -rf target
       - name: Upload artifact
@@ -259,8 +257,6 @@ jobs:
         shell: bash
       - name: Test bindings
         run: yarn test
-      - name: Benchmark
-        run: yarn bench
   test-linux-x64-gnu-binding:
     name: Test bindings on Linux-x64-gnu - node@${{ matrix.node }}
     needs:
@@ -298,7 +294,7 @@ jobs:
         shell: bash
       - name: Test bindings
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn test
-      - name: Benchmark
+      - name: Linux Benchmark
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-slim yarn bench
   test-linux-x64-musl-binding:
     name: Test bindings on x86_64-unknown-linux-musl - node@${{ matrix.node }}
@@ -337,8 +333,6 @@ jobs:
         shell: bash
       - name: Test bindings
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-alpine yarn test
-      - name: Benchmark
-        run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-alpine yarn bench
   test-linux-aarch64-gnu-binding:
     name: Test bindings on aarch64-unknown-linux-gnu - node@${{ matrix.node }}
     needs:
@@ -377,7 +371,6 @@ jobs:
           run: |
             set -e
             yarn test
-            yarn bench
             ls -la
   test-linux-aarch64-musl-binding:
     name: Test bindings on aarch64-unknown-linux-musl - node@${{ matrix.node }}
@@ -411,7 +404,6 @@ jobs:
             set -e
             apk add nodejs npm yarn
             yarn test
-            yarn bench
   test-linux-arm-gnueabihf-binding:
     name: Test bindings on armv7-unknown-linux-gnueabihf - node@${{ matrix.node }}
     needs:
@@ -450,7 +442,6 @@ jobs:
           run: |
             set -e
             yarn test
-            yarn bench
             ls -la
   publish:
     name: Publish
