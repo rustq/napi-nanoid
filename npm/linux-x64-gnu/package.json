@@ -13,6 +13,8 @@
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [
+    "napi-nanoid",
+    "nanoid",
     "napi-rs",
     "NAPI",
     "N-API",

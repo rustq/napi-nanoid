@@ -1,25 +1,37 @@
-# `@napi-rs/package-template`
+# napi-nanoid
 
-![https://github.com/napi-rs/package-template/actions](https://github.com/napi-rs/package-template/workflows/CI/badge.svg)
 
-> Template project for writing node package with napi-rs.
+[![license](https://img.shields.io/npm/l/napi-nanoid?color=cyan)](https://revolunet.mit-license.org/) [![npm](https://img.shields.io/npm/v/napi-nanoid?color=orange)](https://www.npmjs.com/package/napi-nanoid) [![downloads](https://img.shields.io/npm/dm/napi-nanoid?color=violet)](https://www.npmjs.com/package/napi-nanoid)
 
-# Usage
+`The NAPI nanoid written in Rust`
 
-1. Click __Use this template__.
-2. __Clone__ your project.
-3. Run `yarn install` to install dependencies.
-4. Run `npx napi rename [name]` command under the project folder to rename your package.
+`一款基于 Rust 实现的 NAPI nanoid `
 
-## Install this test package
+## Install
 
+```shell
+$ yarn add napi-nanoid
 ```
-yarn add @napi-rs/package-template
+
+```shell
+$ npm i napi-nanoid
+```
+
+## Usage
+
+```js
+const { nanoid } = require('napi-nanoid');
+
+nanoid() // => AeogKAGjUMX6mqB4sMzWe
+```
+
+## Performance
+
+```shell
+# TODO
 ```
 
 ## Support matrix
-
-### Operating Systems
 
 |                  | node12 | node14 | node16 |
 | ---------------- | ------ | ------ | ------ |
@@ -37,69 +49,26 @@ yarn add @napi-rs/package-template
 | Android armv7    | ✓      | ✓      | ✓      |
 | FreeBSD x64      | ✓      | ✓      | ✓      |
 
-## Ability
+## Development
 
-### Build
+```shell
+$ git clone https://github.com/rustq/napi-nanoid
 
-After `yarn build/npm run build` command, you can see `package-template.[darwin|win32|linux].node` file in project root. This is the native addon built from [lib.rs](./src/lib.rs).
+$ cd napi-nanoid
 
-### Test
-
-With [ava](https://github.com/avajs/ava), run `yarn test/npm run test` to testing native addon. You can also switch to another testing framework if you want.
-
-### CI
-
-With GitHub actions, every commits and pull request will be built and tested automatically in [`node@12`, `node@14`, `@node16`] x [`macOS`, `Linux`, `Windows`] matrix. You will never be afraid of the native addon broken in these platforms.
-
-### Release
-
-Release native package is very difficult in old days. Native packages may ask developers who use its to install `build toolchain` like `gcc/llvm` , `node-gyp` or something more.
-
-With `GitHub actions`, we can easily prebuild `binary` for major platforms. And with `N-API`, we should never afraid of **ABI Compatible**.
-
-The other problem is how to deliver prebuild `binary` to users. Download it in `postinstall` script is a common way which most packages do it right now. The problem of this solution is it introduced many other packages to download binary which has not been used by `runtime codes`. The other problem is some user may not easily download the binary from `GitHub/CDN` if they are behind private network (But in most case, they have a private NPM mirror).
-
-In this package we choose a better way to solve this problem. We release different `npm packages` for different platform. And add it to `optionalDependencies` before release the `Major` package to npm.
-
-`NPM` will choose which native package should download from `registry` automatically. You can see [npm](./npm) dir for details. And you can also run `yarn add @napi-rs/package-template` to see how it works.
-
-## Develop requirements
-
-- Install latest `Rust`
-- Install `Node.js@10+` which fully supported `Node-API`
-- Install `yarn@1.x`
-
-## Test in local
-
-- yarn
-- yarn build
-- yarn test
-
-And you will see:
-
-```bash
-$ ava --verbose
-
-  ✔ sync function from native code
-  ✔ sleep function from native code (201ms)
-  ─
-
-  2 tests passed
-✨  Done in 1.12s.
+$ yarn
 ```
 
-## Release package
+```shell
+$ yarn build
 
-Ensure you have set you **NPM_TOKEN** in `GitHub` project setting.
-
-In `Settings -> Secrets`, add **NPM_TOKEN** into it.
-
-When you want release package:
-
-```
-npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
-
-git push
+$ yarn test
 ```
 
-GitHub actions will do the rest job for you.
+```shell
+$ yarn bench
+```
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
