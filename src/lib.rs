@@ -1,6 +1,8 @@
 #![deny(clippy::all)]
 
+#[warn(unused_imports)]
 use napi_derive::napi;
+
 use random_fast_rng::{FastRng, Random};
 
 #[cfg(all(

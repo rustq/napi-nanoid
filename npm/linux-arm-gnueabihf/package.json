@@ -1,15 +1,15 @@
 {
-  "name": "@napi-rs/package-template-linux-arm-gnueabihf",
-  "version": "1.0.0",
+  "name": "napi-nanoid-linux-arm-gnueabihf",
+  "version": "0.0.1-dev.8",
   "os": [
     "linux"
   ],
   "cpu": [
     "arm"
   ],
-  "main": "package-template.linux-arm-gnueabihf.node",
+  "main": "napi-nanoid.linux-arm-gnueabihf.node",
   "files": [
-    "package-template.linux-arm-gnueabihf.node"
+    "napi-nanoid.linux-arm-gnueabihf.node"
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [
@@ -28,5 +28,5 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "repository": "git@github.com:napi-rs/package-template.git"
+  "repository": "git@github.com:rustq/napi-nanoid.git"
 }
