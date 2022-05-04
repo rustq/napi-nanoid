@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-linux-arm64-musl",
-  "version": "0.0.1-dev.9",
+  "version": "0.0.1-dev.12",
   "os": [
     "linux"
   ],

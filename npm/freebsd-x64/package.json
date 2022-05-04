@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-freebsd-x64",
-  "version": "0.0.1-dev.9",
+  "version": "0.0.1-dev.12",
   "os": [
     "freebsd"
   ],
