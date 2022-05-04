@@ -83,15 +83,13 @@ jobs:
           path: ${{ env.APP_NAME }}.*.node
           if-no-files-found: error
   Benchmark:
-    name: Test bindings on Linux-x64-gnu - node@${{ matrix.node }}
+    name: Run benchmark on Linux-x64-gnu - node@${{ matrix.node }}
     needs:
       - build
     strategy:
       fail-fast: false
       matrix:
         node:
-          - '12'
-          - '14'
           - '16'
     runs-on: ubuntu-latest
     steps:
