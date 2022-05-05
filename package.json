@@ -71,6 +71,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
+    "hyperid": "^3.0.1",
     "lint-staged": "^12.1.2",
     "nanoid": "^3.3.3",
     "npm-run-all": "^4.1.5",

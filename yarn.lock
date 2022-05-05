@@ -1622,6 +1622,14 @@ husky@^7.0.4:
   resolved "https://registry.npmjs.org/husky/-/husky-7.0.4.tgz"
   integrity sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==
 
+hyperid@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/hyperid/-/hyperid-3.0.1.tgz#6e9f965d79291e0465f4325568d028168b6b851b"
+  integrity sha512-I+tl7TS5nsoVhkxqX1rS3Qmqlq44eoPUcgPthW8v3IW8CvWL7lwtd6HQbkDUMrBKJTG0vgEaRsjT35imW/D+9Q==
+  dependencies:
+    uuid "^8.3.2"
+    uuid-parse "^1.1.0"
+
 ieee754@^1.1.13:
   version "1.2.1"
   resolved "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
@@ -3261,6 +3269,11 @@ util-deprecate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+
+uuid-parse@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/uuid-parse/-/uuid-parse-1.1.0.tgz#7061c5a1384ae0e1f943c538094597e1b5f3a65b"
+  integrity sha512-OdmXxA8rDsQ7YpNVbKSJkNzTw2I+S5WsbMDnCtIWSQaosNAcWtFuI/YK1TjzUI6nbkgiqEyh8gWngfcv8Asd9A==
 
 uuid@^8.3.2:
   version "8.3.2"

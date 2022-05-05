@@ -1,8 +1,11 @@
 import b from 'benny'
+import hyperidFactory from 'hyperid'
 import { nanoid as nanoidJs } from 'nanoid'
 import * as uuid from 'uuid'
 
 import { nanoid as nanoidNapi } from '../index'
+
+const hyperid = hyperidFactory()
 
 async function run() {
   await b.suite(
@@ -18,6 +21,10 @@ async function run() {
 
     b.add('uuid', () => {
       uuid.v4()
+    }),
+
+    b.add('hyperid', () => {
+      hyperid()
     }),
 
     b.cycle(),
