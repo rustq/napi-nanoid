@@ -1,37 +1,46 @@
-import b from 'benny'
+import crypto from 'crypto'
+
+import benchmark, { Event } from 'benchmark'
+import cuid from 'cuid'
 import hyperidFactory from 'hyperid'
 import { nanoid as nanoidJs } from 'nanoid'
+import srs from 'secure-random-string'
+import shortid from 'shortid'
 import * as uuid from 'uuid'
 
 import { nanoid as nanoidNapi } from '../index'
 
+const b = new benchmark.Suite()
 const hyperid = hyperidFactory()
 
-async function run() {
-  await b.suite(
-    'napi-nanoid',
-
-    b.add('napi-nanoid', () => {
-      nanoidNapi()
-    }),
-
-    b.add('js-nanoid', () => {
-      nanoidJs()
-    }),
-
-    b.add('uuid', () => {
-      uuid.v4()
-    }),
-
-    b.add('hyperid', () => {
-      hyperid()
-    }),
-
-    b.cycle(),
-    b.complete(),
-  )
-}
-
-run().catch((e) => {
-  console.error(e)
+b.add('shortid', () => {
+  shortid()
 })
+  .add('cuid', () => {
+    cuid()
+  })
+  .add('secure-random-string', () => {
+    srs()
+  })
+  .add('uuid', () => {
+    uuid.v4()
+  })
+  .add('js-nanoid', () => {
+    nanoidJs()
+  })
+
+  .add('napi-nanoid', () => {
+    nanoidNapi()
+  })
+  .add('crypto.randomUUID', () => {
+    crypto.randomUUID()
+  })
+  .add('hyperid', () => {
+    hyperid()
+  })
+  .on('cycle', (event: Event) => {
+    process.stdout.write(
+      `${event.target.name!} ${Number(event.target.hz!.toFixed(0)).toLocaleString('en-US').padStart(20)} ops/sec\n`,
+    )
+  })
+  .run()
