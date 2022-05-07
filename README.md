@@ -27,20 +27,32 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 ## Performance
 
+`nanoid compare`
+
 ```rust
-shortid                  23,544 ops/sec
-cuid                    103,653 ops/sec
-secure-random-string    201,080 ops/sec
-uuid                    896,956 ops/sec
-js-nanoid             2,582,868 ops/sec
-napi-nanoid           4,649,540 ops/sec
-crypto.randomUUID    11,813,899 ops/sec
-hyperid              14,359,518 ops/sec
+  js-nanoid:
+    2 710 952 ops/s, ±0.44%
+
+  napi-nanoid:
+    4 730 698 ops/s, ±0.12%
+```
+
+`performance of all`
+
+```rust
+shortid                  23,037 ops/sec
+cuid                    101,131 ops/sec
+secure-random-string    201,408 ops/sec
+uuid                    903,613 ops/sec
+js-nanoid             2,638,029 ops/sec
+napi-nanoid           4,710,363 ops/sec
+crypto.randomUUID    10,385,953 ops/sec
+hyperid              12,659,173 ops/sec
 ```
 
 Benchmark configuration: Linux x64 gnu, Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz, Node.js 16.15.0
 
-[(runs: 6301184360)](https://github.com/rustq/napi-nanoid/runs/6301184360)
+[(runs: 6334562401)](https://github.com/rustq/napi-nanoid/runs/6334562401)
 
 ## Support matrix
 
