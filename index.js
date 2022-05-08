@@ -192,6 +192,8 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { nanoid } = nativeBinding
+const { nanoid, customSize, customAlphabet } = nativeBinding
 
 module.exports.nanoid = nanoid
+module.exports.customSize = customSize
+module.exports.customAlphabet = customAlphabet

@@ -12,7 +12,7 @@ use random_fast_rng::{FastRng, Random};
 #[global_allocator]
 static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-fn random(size: usize) -> Vec<u8> {
+fn default_random(size: usize) -> Vec<u8> {
   let mut fast_rng = FastRng::new();
   let mut result: Vec<u8> = vec![0; size];
 
@@ -22,5 +22,35 @@ fn random(size: usize) -> Vec<u8> {
 
 #[napi]
 pub fn nanoid() -> String {
-  nanoid::format(random, &nanoid::alphabet::SAFE, 21)
+  nanoid::format(default_random, &nanoid::alphabet::SAFE, 21)
+}
+
+#[napi]
+pub fn custom_size(_size: Option<u32>) -> String {
+  let size = if let Some(size) = _size {
+    size as usize
+  } else {
+    21
+  };
+
+  nanoid::format(default_random, &nanoid::alphabet::SAFE, size)
+}
+
+#[napi]
+pub fn custom_alphabet(_size: Option<u32>, _alphabet: Option<&str>) -> String {
+  let size = if let Some(size) = _size {
+    size as usize
+  } else {
+    21
+  };
+
+  let mut custom_alphabet = vec![];
+  let alphabet = if let Some(alp) = _alphabet {
+    custom_alphabet = alp.to_string().chars().collect::<Vec<_>>();
+    &custom_alphabet[..]
+  } else {
+    &nanoid::alphabet::SAFE
+  };
+
+  nanoid::format(default_random, alphabet, size)
 }

@@ -9,7 +9,7 @@ import srs from 'secure-random-string'
 import shortid from 'shortid'
 import * as uuid from 'uuid'
 
-import { nanoid as nanoidNapi } from '../index'
+import { nanoid as nanoidNapi, customSize, customAlphabet } from '../index'
 
 async function run() {
   // nanoid compare
@@ -62,6 +62,13 @@ async function run() {
     .add('napi-nanoid', () => {
       nanoidNapi()
     })
+    .add('napi-nanoid1 custom size', () => {
+      customSize(21)
+    })
+    .add('napi-nanoid2 custom size and alphabet', () => {
+      customAlphabet(21, 'abcdefghigklmnopqrstuvwxyz_0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZ-')
+    })
+
     .add('crypto.randomUUID', () => {
       crypto.randomUUID()
     })
