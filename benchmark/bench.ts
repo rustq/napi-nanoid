@@ -9,7 +9,7 @@ import srs from 'secure-random-string'
 import shortid from 'shortid'
 import * as uuid from 'uuid'
 
-import { nanoid as nanoidNapi, customSize, customAlphabet } from '../index'
+import { nanoid as nanoidNapi, Factory, customSize, customAlphabet } from '../index'
 
 async function run() {
   // nanoid compare
@@ -42,6 +42,10 @@ async function run() {
   const bench = new benchmark.Suite()
   const hyperid = hyperidFactory()
 
+  const instance31 = new Factory(31)
+  const instance = new Factory()
+  const instance8 = new Factory(8)
+
   bench
     .add('shortid', () => {
       shortid()
@@ -67,6 +71,15 @@ async function run() {
     })
     .add('napi-nanoid2 custom size and alphabet', () => {
       customAlphabet(21, 'abcdefghigklmnopqrstuvwxyz_0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZ-')
+    })
+    .add('napi-nanoid factory 31', () => {
+      instance31.nanoid()
+    })
+    .add('napi-nanoid factory default', () => {
+      instance.nanoid()
+    })
+    .add('napi-nanoid factory 8', () => {
+      instance8.nanoid()
     })
 
     .add('crypto.randomUUID', () => {

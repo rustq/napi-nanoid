@@ -1,5 +1,6 @@
 #![deny(clippy::all)]
 
+use napi::JsNumber;
 use napi_derive::*;
 use random_fast_rng::{FastRng, Random};
 
@@ -18,6 +19,25 @@ fn default_random(size: usize) -> Vec<u8> {
 
   fast_rng.fill_bytes(&mut result[..]);
   result
+}
+
+#[napi]
+struct Factory {
+  pub size: u32,
+}
+
+#[napi]
+impl Factory {
+  #[napi(constructor)]
+  pub fn new(_size: Option<u32>) -> Self {
+    let size = if let Some(size) = _size { size } else { 21 };
+    Factory { size }
+  }
+
+  #[napi]
+  pub fn nanoid(&mut self) -> String {
+    nanoid::format(default_random, &nanoid::alphabet::SAFE, self.size as usize)
+  }
 }
 
 #[napi]

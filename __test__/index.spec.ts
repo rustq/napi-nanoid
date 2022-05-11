@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import { nanoid, customSize, customAlphabet } from '../index'
+import { nanoid, Factory, customSize, customAlphabet } from '../index'
 
 test('sync function from native code', (t) => {
   for (let i = 1; i < 100; i++) {
@@ -9,6 +9,16 @@ test('sync function from native code', (t) => {
     console.log(id)
     t.is(id.length, 21)
   }
+})
+
+test('Factory 31', (t) => {
+  const instance = new Factory(31)
+  t.is(instance.nanoid().length, 31)
+})
+
+test('Factory undefined', (t) => {
+  const instance = new Factory(undefined)
+  t.is(instance.nanoid().length, 21)
 })
 
 test('custom size nanoid', (t) => {
