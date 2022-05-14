@@ -25,6 +25,10 @@ pub fn nanoid() -> String {
   nanoid::format(default_random, &nanoid::alphabet::SAFE, 21)
 }
 
+/* custom method won't be added into 0.0.1 yet until the napi case be resolved */
+
+/*
+
 #[napi]
 pub fn custom_size(_size: Option<u32>) -> String {
   let size = if let Some(size) = _size {
@@ -54,3 +58,5 @@ pub fn custom_alphabet(_size: Option<u32>, _alphabet: Option<&str>) -> String {
 
   nanoid::format(default_random, alphabet, size)
 }
+
+*/
