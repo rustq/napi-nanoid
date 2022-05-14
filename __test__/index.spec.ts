@@ -1,15 +1,16 @@
 import test from 'ava'
 
-import { nanoid, customSize, customAlphabet } from '../index'
+import { nanoid /*, customSize, customAlphabet */ } from '../index'
 
 test('sync function from native code', (t) => {
   for (let i = 1; i < 100; i++) {
     const id = nanoid()
-    // eslint-disable-next-line no-console
-    console.log(id)
     t.is(id.length, 21)
   }
 })
+
+/* custom method won't be added into 0.0.1 yet until the napi case be resolved */
+/*
 
 test('custom size nanoid', (t) => {
   for (let i = 1; i < 100; i++) {
@@ -26,3 +27,5 @@ test('custom alphabet nanoid', (t) => {
     t.notRegex(id, new RegExp(`[^${alphabet}]`))
   }
 })
+
+*/
