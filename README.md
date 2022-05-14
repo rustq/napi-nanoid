@@ -1,3 +1,5 @@
+![cover](https://user-images.githubusercontent.com/11075892/168442682-1e4e5d5f-708a-4d87-85f9-ea526dc5edbf.png)
+
 # napi-nanoid
 
 
