@@ -5,6 +5,7 @@ import benny from 'benny'
 import cuid from 'cuid'
 import hyperidFactory from 'hyperid'
 import { nanoid as nanoidJs } from 'nanoid'
+import { nanoid as nanoidJsNonSecure } from 'nanoid/non-secure'
 import srs from 'secure-random-string'
 import shortid from 'shortid'
 import * as uuid from 'uuid'
@@ -21,11 +22,15 @@ async function run() {
   await benny.suite(
     'nanoid compare',
 
+    benny.add('js-nanoid (non-secure)', () => {
+      nanoidJsNonSecure()
+    }),
+
     benny.add('js-nanoid', () => {
       nanoidJs()
     }),
 
-    benny.add('napi-nanoid', () => {
+    benny.add('napi-nanoid (non-secure)', () => {
       nanoidNapi()
     }),
 
@@ -55,11 +60,14 @@ async function run() {
     .add('uuid', () => {
       uuid.v4()
     })
+    .add('js-nanoid (non-secure)', () => {
+      nanoidJsNonSecure()
+    })
     .add('js-nanoid', () => {
       nanoidJs()
     })
 
-    .add('napi-nanoid', () => {
+    .add('napi-nanoid (non-secure)', () => {
       nanoidNapi()
     })
 
