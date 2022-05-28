@@ -14,24 +14,17 @@ use std::sync::Mutex;
 #[global_allocator]
 static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-static BUFFER_SIZE: usize = (2 << 8) * 21;
 static ID_SIZE: usize = 21;
+static BUFFER_SIZE: usize = (2 << 8) * ID_SIZE;
+static ALPHABET: [char; 64] = nanoid::alphabet::SAFE;
 
 lazy_static! {
-  static ref bytes: Mutex<Vec<u8>> = Mutex::new(secure_random(BUFFER_SIZE));
+  static ref buffer: Mutex<Vec<u8>> = Mutex::new(nanoid::rngs::default(BUFFER_SIZE));
   static ref pointer: Mutex<usize> = Mutex::new(0);
 }
 
-fn secure_random(size: usize) -> Vec<u8> {
-  nanoid::rngs::default(size)
-}
-
-fn non_secure_random(size: usize) -> Vec<u8> {
-  nanoid::rngs::non_secure(size)
-}
-
-fn generate(random: fn(usize) -> Vec<u8>) -> String {
-  let alphabet = nanoid::alphabet::SAFE;
+fn format(random: fn(usize) -> Vec<u8>) -> String {
+  let alphabet = ALPHABET;
 
   assert!(
     alphabet.len() <= u8::max_value() as usize,
@@ -43,37 +36,39 @@ fn generate(random: fn(usize) -> Vec<u8>) -> String {
   // Assert that the masking does not truncate the alphabet. (See #9)
   debug_assert!(alphabet.len() <= mask + 1);
 
-  let mut id = String::with_capacity(21);
+  let mut id = String::with_capacity(ID_SIZE);
 
   let start = *pointer.lock().unwrap();
-  let end = start + 21;
-  let bytes_ref = &mut bytes.lock().unwrap();
-  for i in start..end {
-    let byte = bytes_ref[i] as usize & mask;
+  let end = start + ID_SIZE;
 
+  let bytes = &mut buffer.lock().unwrap();
+
+  for i in start..end {
+    let byte = bytes[i] as usize & mask;
     id.push(alphabet[byte]);
   }
 
-  *pointer.lock().unwrap() += ID_SIZE;
-
-  if (end + 21) > BUFFER_SIZE {
+  if (end + ID_SIZE) <= BUFFER_SIZE {
+    *pointer.lock().unwrap() += ID_SIZE;
+  } else {
     *pointer.lock().unwrap() = 0;
     let buf = random(BUFFER_SIZE);
-    for idx in 0..BUFFER_SIZE {
-      bytes_ref[idx] = buf[idx];
+    for i in 0..BUFFER_SIZE {
+      bytes[i] = buf[i];
     }
   }
+
   id
 }
 
 #[napi]
 pub fn nanoid() -> String {
-  generate(secure_random)
+  format(nanoid::rngs::default)
 }
 
 #[napi]
 pub fn nanoid_non_secure() -> String {
-  generate(non_secure_random)
+  format(nanoid::rngs::non_secure)
 }
 
 /* custom method won't be added into 0.0.1 yet until the napi case be resolved */
