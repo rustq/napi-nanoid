@@ -10,7 +10,7 @@ import srs from 'secure-random-string'
 import shortid from 'shortid'
 import * as uuid from 'uuid'
 
-import { nanoid as nanoidNapi /* , customSize, customAlphabet */ } from '../index'
+import { nanoid as nanoidNapi, nanoidNonSecure as nanoidNonSecureNapi /* , customSize, customAlphabet */ } from '../index'
 
 async function run() {
   // nanoid compare
@@ -31,6 +31,10 @@ async function run() {
     }),
 
     benny.add('napi-nanoid (non-secure)', () => {
+      nanoidNonSecureNapi()
+    }),
+
+    benny.add('napi-nanoid', () => {
       nanoidNapi()
     }),
 
