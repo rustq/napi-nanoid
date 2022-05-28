@@ -76,7 +76,7 @@ async function run() {
       nanoidNapi()
     })
     .add('napi-nanoid (non-secure)', () => {
-      nanoidNonSecureNapi()
+      nanoidNapiNonSecure()
     })
 
     /* custom method won't be added into 0.0.1 yet until the napi case be resolved */
