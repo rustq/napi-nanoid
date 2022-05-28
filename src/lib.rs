@@ -17,41 +17,38 @@ static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 static ID_SIZE: usize = 21;
 static BUFFER_SIZE: usize = (2 << 8) * ID_SIZE;
 static ALPHABET: [char; 64] = nanoid::alphabet::SAFE;
+static MASK: usize = ALPHABET.len().next_power_of_two() - 1;
 
 lazy_static! {
-  static ref buffer: Mutex<Vec<u8>> = Mutex::new(nanoid::rngs::default(BUFFER_SIZE));
-  static ref pointer: Mutex<usize> = Mutex::new(0);
+  static ref BUFFER: Mutex<Vec<u8>> = Mutex::new(nanoid::rngs::default(BUFFER_SIZE));
+  static ref POINTER: Mutex<usize> = Mutex::new(0);
 }
 
 fn format(random: fn(usize) -> Vec<u8>) -> String {
-  let alphabet = ALPHABET;
-
   assert!(
-    alphabet.len() <= u8::max_value() as usize,
+    ALPHABET.len() <= u8::max_value() as usize,
     "The alphabet cannot be longer than a `u8` (to comply with the `random` function)"
   );
 
-  let mask = alphabet.len().next_power_of_two() - 1;
-
   // Assert that the masking does not truncate the alphabet. (See #9)
-  debug_assert!(alphabet.len() <= mask + 1);
+  debug_assert!(ALPHABET.len() <= MASK + 1);
 
   let mut id = String::with_capacity(ID_SIZE);
 
-  let start = *pointer.lock().unwrap();
+  let start = *POINTER.lock().unwrap();
   let end = start + ID_SIZE;
 
-  let bytes = &mut buffer.lock().unwrap();
+  let bytes = &mut BUFFER.lock().unwrap();
 
   for i in start..end {
-    let byte = bytes[i] as usize & mask;
-    id.push(alphabet[byte]);
+    let byte = bytes[i] as usize & MASK;
+    id.push(ALPHABET[byte]);
   }
 
   if (end + ID_SIZE) <= BUFFER_SIZE {
-    *pointer.lock().unwrap() += ID_SIZE;
+    *POINTER.lock().unwrap() += ID_SIZE;
   } else {
-    *pointer.lock().unwrap() = 0;
+    *POINTER.lock().unwrap() = 0;
     let buf = random(BUFFER_SIZE);
     for i in 0..BUFFER_SIZE {
       bytes[i] = buf[i];

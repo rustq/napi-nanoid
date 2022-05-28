@@ -12,7 +12,7 @@ import * as uuid from 'uuid'
 
 import {
   nanoid as nanoidNapi,
-  nanoidNonSecure as nanoidNonSecureNapi /* , customSize, customAlphabet */,
+  nanoidNonSecure as nanoidNapiNonSecure /* , customSize, customAlphabet */,
 } from '../index'
 
 async function run() {
@@ -25,20 +25,18 @@ async function run() {
   await benny.suite(
     'nanoid compare',
 
-    benny.add('js-nanoid (non-secure)', () => {
-      nanoidJsNonSecure()
-    }),
-
     benny.add('js-nanoid', () => {
       nanoidJs()
     }),
-
-    benny.add('napi-nanoid (non-secure)', () => {
-      nanoidNonSecureNapi()
-    }),
-
     benny.add('napi-nanoid', () => {
       nanoidNapi()
+    }),
+
+    benny.add('js-nanoid (non-secure)', () => {
+      nanoidJsNonSecure()
+    }),
+    benny.add('napi-nanoid (non-secure)', () => {
+      nanoidNapiNonSecure()
     }),
 
     benny.cycle(),
@@ -70,12 +68,15 @@ async function run() {
     .add('js-nanoid (non-secure)', () => {
       nanoidJsNonSecure()
     })
-    .add('js-nanoid', () => {
+    .add('js-nanoid (secure)', () => {
       nanoidJs()
     })
 
-    .add('napi-nanoid (non-secure)', () => {
+    .add('napi-nanoid (secure)', () => {
       nanoidNapi()
+    })
+    .add('napi-nanoid (non-secure)', () => {
+      nanoidNonSecureNapi()
     })
 
     /* custom method won't be added into 0.0.1 yet until the napi case be resolved */
