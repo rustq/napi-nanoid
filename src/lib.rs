@@ -2,8 +2,8 @@
 
 #[macro_use]
 extern crate lazy_static;
-use std::sync::Mutex;
 use napi_derive::*;
+use std::sync::Mutex;
 
 #[cfg(all(
   any(windows, unix),
