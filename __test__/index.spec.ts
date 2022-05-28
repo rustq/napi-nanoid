@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import test from 'ava'
 
 import { nanoid /*, customSize, customAlphabet */ } from '../index'
@@ -5,6 +6,7 @@ import { nanoid /*, customSize, customAlphabet */ } from '../index'
 test('sync function from native code', (t) => {
   for (let i = 1; i < 100; i++) {
     const id = nanoid()
+    console.log(id)
     t.is(id.length, 21)
   }
 })
