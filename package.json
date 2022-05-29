@@ -1,7 +1,7 @@
 {
   "name": "napi-nanoid",
   "version": "0.0.2-rc2",
-  "description": "A tiny, secure, URL-friendly, unique string ID generator for NAPI written in Rust",
+  "description": "The NAPI nanoid written in Rust",
   "main": "index.js",
   "repository": "git@github.com:rustq/napi-nanoid.git",
   "license": "MIT",
