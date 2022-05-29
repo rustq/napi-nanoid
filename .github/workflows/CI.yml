@@ -7,7 +7,7 @@ env:
   push:
     branches:
       - main
-      - '0.0.*'
+      - '*\.*\.*'
     tags-ignore:
       - '**'
     paths-ignore:
@@ -480,7 +480,6 @@ jobs:
         shell: bash
       - name: Publish
         run: |
-          git log -1 --pretty=%B | grep "";
           if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
           then
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
