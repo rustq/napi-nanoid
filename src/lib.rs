@@ -64,7 +64,7 @@ pub fn nanoid() -> String {
 }
 
 #[napi]
-pub fn nanoid_non_secure() -> String {
+pub fn non_secure() -> String {
   format(nanoid::rngs::non_secure)
 }
 

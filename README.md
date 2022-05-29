@@ -5,13 +5,9 @@
 
 `The NAPI nanoid written in Rust`
 
-`一款基于 Rust 实现的 NAPI nanoid `
+`一款基于 Rust 实现的 NAPI nanoid`
 
 ## Install
-
-```shell
-$ yarn add napi-nanoid
-```
 
 ```shell
 $ npm i napi-nanoid
@@ -31,36 +27,36 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 ```rust
   js-nanoid:
-    2 584 156 ops/s, ±0.45%
+    2 648 596 ops/s, ±1.07%
 
   napi-nanoid:
-    4 517 790 ops/s, ±0.21%
+    4 514 874 ops/s, ±0.30%
 
   js-nanoid (non-secure):
-    1 852 950 ops/s, ±0.18%
+    1 928 811 ops/s, ±0.19%
 
   napi-nanoid (non-secure):
-    4 626 292 ops/s, ±0.15%
+    4 650 390 ops/s, ±0.15%
 ```
 
 `performance of all`
 
 ```rust
-shortid                         22,280 ops/sec
-cuid                            92,611 ops/sec
-secure-random-string           185,539 ops/sec
-uuid                           821,349 ops/sec
-js-nanoid (non-secure)       1,795,358 ops/sec
-js-nanoid (secure)           2,414,409 ops/sec
-napi-nanoid (secure)         4,277,026 ops/sec
-napi-nanoid (non-secure)     4,381,791 ops/sec
-crypto.randomUUID           10,244,998 ops/sec
-hyperid                     13,979,761 ops/sec
+shortid                                23,347 ops/sec
+cuid                                   99,297 ops/sec
+secure-random-string                  194,417 ops/sec
+uuid                                  889,546 ops/sec
+js-nanoid (non-secure)              1,880,626 ops/sec
+js-nanoid (secure)                  2,533,078 ops/sec
+napi-nanoid (secure)                4,260,840 ops/sec
+napi-nanoid (non-secure)            4,313,727 ops/sec
+crypto.randomUUID                  10,290,907 ops/sec
+hyperid                            14,344,743 ops/sec
 ```
 
 Benchmark configuration: Linux x64 gnu, Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz, Node.js 16.15.0
 
-[(runs: 6637597027)](https://github.com/rustq/napi-nanoid/runs/6637597027)
+[(runs: 6641636519)](https://github.com/rustq/napi-nanoid/runs/6641636519)
 
 ## Support matrix
 
