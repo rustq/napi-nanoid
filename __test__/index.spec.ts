@@ -4,11 +4,17 @@ import test from 'ava'
 import { nanoid /*, customSize, customAlphabet */ } from '../index'
 
 test('sync function from native code', (t) => {
-  for (let i = 1; i < 100; i++) {
+  const set = new Set()
+  for (let i = 0; i < 10000; i++) {
     const id = nanoid()
-    console.log(id)
+    t.is(set.has(id), false)
+    set.add(id)
+    if (i % 100 === 99) {
+      console.log(i, id)
+    }
     t.is(id.length, 21)
   }
+  t.is(set.size, 10000)
 })
 
 /* custom method won't be added into 0.0.1 yet until the napi case be resolved */
