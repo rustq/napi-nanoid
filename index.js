@@ -192,7 +192,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { nanoid, nanoidNonSecure } = nativeBinding
+const { nanoid, nonSecure } = nativeBinding
 
 module.exports.nanoid = nanoid
-module.exports.nanoidNonSecure = nanoidNonSecure
+module.exports.nonSecure = nonSecure

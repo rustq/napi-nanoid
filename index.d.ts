@@ -7,4 +7,4 @@ export class ExternalObject<T> {
   }
 }
 export function nanoid(): string
-export function nanoidNonSecure(): string
+export function nonSecure(): string
