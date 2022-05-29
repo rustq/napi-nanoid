@@ -10,10 +10,6 @@
 ## Install
 
 ```shell
-$ yarn add napi-nanoid
-```
-
-```shell
 $ npm i napi-nanoid
 ```
 
