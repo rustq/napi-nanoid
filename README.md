@@ -3,9 +3,9 @@
 
 [![license](https://img.shields.io/npm/l/napi-nanoid?color=cyan)](https://revolunet.mit-license.org/) [![npm](https://img.shields.io/npm/v/napi-nanoid?color=orange)](https://www.npmjs.com/package/napi-nanoid) [![downloads](https://img.shields.io/npm/dm/napi-nanoid?color=purple)](https://www.npmjs.com/package/napi-nanoid)
 
-`The NAPI nanoid written in Rust with secure and better performance`
+`The NAPI nanoid written in Rust (with secure and better performance)`
 
-`一款基于 Rust 实现的 NAPI nanoid 拥有安全性以及更好的性能`
+`一款基于 Rust 实现的 NAPI nanoid (拥有安全性以及更好的性能)`
 
 ## Install
 
