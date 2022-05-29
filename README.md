@@ -18,7 +18,7 @@ $ npm i napi-nanoid
 ```js
 const { nanoid } = require('napi-nanoid');
 
-nanoid() // => AeogKAGjUMX6mqB4sMzWe 
+nanoid() // => AeogKAGjUMX6mqB4sMzWe
 ```
 
 ## Performance
