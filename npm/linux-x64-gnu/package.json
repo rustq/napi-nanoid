@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-linux-x64-gnu",
-  "version": "0.0.2-rc1",
+  "version": "0.0.2-rc2",
   "os": [
     "linux"
   ],
