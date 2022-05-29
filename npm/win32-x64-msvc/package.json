@@ -1,6 +1,6 @@
 {
   "name": "napi-nanoid-win32-x64-msvc",
-  "version": "0.0.2-beta",
+  "version": "0.0.2",
   "os": [
     "win32"
   ],
