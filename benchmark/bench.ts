@@ -10,7 +10,7 @@ import srs from 'secure-random-string'
 import shortid from 'shortid'
 import * as uuid from 'uuid'
 
-import { nanoid as nanoidNapi, nonSecure as nanoidNapiNonSecure } from '../index'
+import * as native from '../index'
 
 async function run() {
   // nanoid compare
@@ -26,14 +26,14 @@ async function run() {
       nanoidJs()
     }),
     benny.add('napi-nanoid', () => {
-      nanoidNapi()
+      native.nanoid()
     }),
 
     benny.add('js-nanoid (non-secure)', () => {
       nanoidJsNonSecure()
     }),
     benny.add('napi-nanoid (non-secure)', () => {
-      nanoidNapiNonSecure()
+      native.nonSecure()
     }),
 
     benny.cycle(),
@@ -70,10 +70,10 @@ async function run() {
     })
 
     .add('napi-nanoid (secure)', () => {
-      nanoidNapi()
+      native.nanoid()
     })
     .add('napi-nanoid (non-secure)', () => {
-      nanoidNapiNonSecure()
+      native.nonSecure()
     })
 
     .add('crypto.randomUUID', () => {
