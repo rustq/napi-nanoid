@@ -27,36 +27,36 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
 
 ```rust
   js-nanoid:
-    2 648 596 ops/s, ±1.07%
+    3 392 881 ops/s, ±0.55%
 
   napi-nanoid:
-    4 514 874 ops/s, ±0.30%
+    5 113 763 ops/s, ±0.12%
 
   js-nanoid (non-secure):
-    1 928 811 ops/s, ±0.19%
+    1 875 245 ops/s, ±0.14%
 
   napi-nanoid (non-secure):
-    4 650 390 ops/s, ±0.15%
+    5 237 554 ops/s, ±0.11% 
 ```
 
 `performance of all`
 
 ```rust
-shortid                                23,347 ops/sec
-cuid                                   99,297 ops/sec
-secure-random-string                  194,417 ops/sec
-uuid                                  889,546 ops/sec
-js-nanoid (non-secure)              1,880,626 ops/sec
-js-nanoid (secure)                  2,533,078 ops/sec
-napi-nanoid (secure)                4,260,840 ops/sec
-napi-nanoid (non-secure)            4,313,727 ops/sec
-crypto.randomUUID                  10,290,907 ops/sec
-hyperid                            14,344,743 ops/sec
+shortid                      24,084 ops/sec
+cuid                        105,736 ops/sec
+secure-random-string        207,409 ops/sec
+uuid                        840,460 ops/sec
+js-nanoid (non-secure)    1,826,354 ops/sec
+js-nanoid (secure)        3,171,036 ops/sec
+napi-nanoid (secure)      4,837,387 ops/sec
+napi-nanoid (non-secure)  4,977,971 ops/sec
+crypto.randomUUID        12,152,367 ops/sec
+hyperid                  16,554,640 ops/sec
 ```
 
-Benchmark configuration: Linux x64 gnu, Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz, Node.js 16.15.0
+Benchmark configuration: Linux x64 gnu, Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz, Node.js 16.15.1
 
-[(runs: 6641636519)](https://github.com/rustq/napi-nanoid/runs/6641636519)
+[(runs: 6842925183)](https://github.com/rustq/napi-nanoid/runs/6842925183)
 
 ## Support matrix
 
