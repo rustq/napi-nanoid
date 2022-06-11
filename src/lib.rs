@@ -14,58 +14,60 @@ use std::sync::Mutex;
 #[global_allocator]
 static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-static ID_SIZE: usize = 21;
-static BUFFER_SIZE: usize = (2 << 8) * ID_SIZE;
-static ALPHABET: [char; 64] = nanoid::alphabet::SAFE;
-static MASK: usize = ALPHABET.len().next_power_of_two() - 1;
+const POOL_SIZE_MULTIPLIER: usize = 128;
+const DEFAULT_SIZE: usize = 21;
+const POOL_SIZE: usize = DEFAULT_SIZE * POOL_SIZE_MULTIPLIER;
 
 lazy_static! {
-  static ref BUFFER: Mutex<Vec<u8>> = Mutex::new(nanoid::rngs::default(BUFFER_SIZE));
-  static ref POINTER: Mutex<usize> = Mutex::new(0);
+  static ref POOL: Mutex<[u8; POOL_SIZE]> = Mutex::new([0; POOL_SIZE]);
+  static ref POOL_OFFSET: Mutex<usize> = Mutex::new(POOL_SIZE);
 }
 
-fn format(random: fn(usize) -> Vec<u8>) -> String {
+fn format(random: fn(usize) -> Vec<u8>, alphabet: &[char], size: usize) -> String {
   assert!(
-    ALPHABET.len() <= u8::max_value() as usize,
+    alphabet.len() <= u8::max_value() as usize,
     "The alphabet cannot be longer than a `u8` (to comply with the `random` function)"
   );
 
+  assert!(size <= POOL_SIZE, "The size should smaller than pool size");
+
+  let bytes = &mut POOL.lock().unwrap();
+  let mask = alphabet.len().next_power_of_two() - 1;
   // Assert that the masking does not truncate the alphabet. (See #9)
-  debug_assert!(ALPHABET.len() <= MASK + 1);
+  debug_assert!(alphabet.len() <= mask + 1);
 
-  let mut id = String::with_capacity(ID_SIZE);
+  let mut pointer = *POOL_OFFSET.lock().unwrap();
 
-  let start = *POINTER.lock().unwrap();
-  let end = start + ID_SIZE;
+  let mut id = String::with_capacity(size);
 
-  let bytes = &mut BUFFER.lock().unwrap();
-
-  for i in start..end {
-    let byte = bytes[i] as usize & MASK;
-    id.push(ALPHABET[byte]);
-  }
-
-  if (end + ID_SIZE) <= BUFFER_SIZE {
-    *POINTER.lock().unwrap() += ID_SIZE;
-  } else {
-    *POINTER.lock().unwrap() = 0;
-    let buf = random(BUFFER_SIZE);
-    for i in 0..BUFFER_SIZE {
-      bytes[i] = buf[i];
+  while id.len() < size {
+    if pointer == POOL_SIZE {
+      let buf = random(POOL_SIZE);
+      for i in 0..POOL_SIZE {
+        bytes[i] = buf[i];
+      }
+      pointer = 0;
     }
+    let byte = bytes[pointer] as usize & mask;
+    if alphabet.len() > byte {
+      id.push(alphabet[byte]);
+    }
+    pointer += 1;
   }
+
+  *POOL_OFFSET.lock().unwrap() = pointer;
 
   id
 }
 
 #[napi]
 pub fn nanoid() -> String {
-  format(nanoid::rngs::default)
+  format(nanoid::rngs::default, &nanoid::alphabet::SAFE, 21)
 }
 
 #[napi]
 pub fn non_secure() -> String {
-  format(nanoid::rngs::non_secure)
+  format(nanoid::rngs::non_secure, &nanoid::alphabet::SAFE, 21)
 }
 
 /* custom method won't be added into 0.0.1 yet until the napi case be resolved */
