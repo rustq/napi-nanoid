@@ -1,8 +1,7 @@
 #![deny(clippy::all)]
 
-#[macro_use]
-extern crate lazy_static;
 use napi_derive::*;
+use once_cell::sync::Lazy;
 use std::sync::Mutex;
 
 #[cfg(all(
@@ -18,10 +17,8 @@ const POOL_SIZE_MULTIPLIER: usize = 128;
 const DEFAULT_SIZE: usize = 21;
 const POOL_SIZE: usize = DEFAULT_SIZE * POOL_SIZE_MULTIPLIER;
 
-lazy_static! {
-  static ref POOL: Mutex<[u8; POOL_SIZE]> = Mutex::new([0; POOL_SIZE]);
-  static ref POOL_OFFSET: Mutex<usize> = Mutex::new(POOL_SIZE);
-}
+static POOL: Lazy<Mutex<[u8; POOL_SIZE]>> = Lazy::new(|| Mutex::new([0; POOL_SIZE]));
+static POOL_OFFSET: Lazy<Mutex<usize>> = Lazy::new(|| Mutex::new(POOL_SIZE));
 
 fn format(random: fn(usize) -> Vec<u8>, alphabet: &[char], size: usize) -> String {
   assert!(
