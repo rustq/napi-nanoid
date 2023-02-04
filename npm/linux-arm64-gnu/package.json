@@ -1,11 +1,14 @@
 {
   "name": "napi-nanoid-linux-arm64-gnu",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "os": [
     "linux"
   ],
   "cpu": [
     "arm64"
+  ],
+  "libc": [
+    "glibc"
   ],
   "main": "napi-nanoid.linux-arm64-gnu.node",
   "files": [

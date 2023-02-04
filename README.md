@@ -1,6 +1,5 @@
 # napi-nanoid
 
-
 [![license](https://img.shields.io/npm/l/napi-nanoid?color=cyan)](https://revolunet.mit-license.org/) [![npm](https://img.shields.io/npm/v/napi-nanoid?color=orange)](https://www.npmjs.com/package/napi-nanoid) [![downloads](https://img.shields.io/npm/dm/napi-nanoid?color=purple)](https://www.npmjs.com/package/napi-nanoid)
 
 `The NAPI nanoid written in Rust`
@@ -16,7 +15,7 @@ $ npm i napi-nanoid
 ## Usage
 
 ```js
-const { nanoid } = require('napi-nanoid');
+const { nanoid } = require('napi-nanoid')
 
 nanoid() // => AeogKAGjUMX6mqB4sMzWe
 ```
@@ -36,7 +35,7 @@ nanoid() // => AeogKAGjUMX6mqB4sMzWe
     1 875 245 ops/s, ±0.14%
 
   napi-nanoid (non-secure):
-    5 237 554 ops/s, ±0.11% 
+    5 237 554 ops/s, ±0.11%
 ```
 
 `performance of all`
