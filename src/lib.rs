@@ -66,39 +66,3 @@ pub fn nanoid() -> String {
 pub fn non_secure() -> String {
   format(nanoid::rngs::non_secure, &nanoid::alphabet::SAFE, 21)
 }
-
-/* custom method won't be added into 0.0.1 yet until the napi case be resolved */
-
-/*
-
-#[napi]
-pub fn custom_size(_size: Option<u32>) -> String {
-  let size = if let Some(size) = _size {
-    size as usize
-  } else {
-    21
-  };
-
-  nanoid::format(default_random, &nanoid::alphabet::SAFE, size)
-}
-
-#[napi]
-pub fn custom_alphabet(_size: Option<u32>, _alphabet: Option<&str>) -> String {
-  let size = if let Some(size) = _size {
-    size as usize
-  } else {
-    21
-  };
-
-  let mut custom_alphabet = vec![];
-  let alphabet = if let Some(alp) = _alphabet {
-    custom_alphabet = alp.to_string().chars().collect::<Vec<_>>();
-    &custom_alphabet[..]
-  } else {
-    &nanoid::alphabet::SAFE
-  };
-
-  nanoid::format(default_random, alphabet, size)
-}
-
-*/
